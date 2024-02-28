@@ -1,33 +1,12 @@
 create database feb26;
 
+use feb26;
  
 
 CREATE TABLE departments
-     (department_id    int  PRIMARY KEY,
-      department_name  VARCHAR(30)  NOT NULL
-     );
- 
-CREATE TABLE hr.jobs
-  (job_id         VARCHAR(10)  PRIMARY KEY,
-   job_title      VARCHAR(35)  NOT NULL,
-   min_salary     int, 
-   max_salary     int
-  );
-     
-     
-    
-CREATE TABLE hr.employees
-(   employee_id    INTEGER  auto_increment primary key,
-    first_name     VARCHAR(20),
-    last_name      VARCHAR(25),
-    email          VARCHAR(25) NOT NULL UNIQUE,
-    hire_date      DATE NOT NULL,
-    job_id         VARCHAR(10)  NOT NULL REFERENCES jobs(job_id),
-    salary         INTEGER  CHECK (salary > 0),
-    department_id  INTEGER  REFERENCES departments(department_id) 
+(department_id    int  PRIMARY KEY,
+ department_name  VARCHAR(30)  NOT NULL
 );
-
-  
 
 INSERT INTO departments VALUES ( 10,'Administration');
 INSERT INTO departments VALUES ( 20,'Marketing' );
@@ -37,7 +16,16 @@ INSERT INTO departments VALUES ( 50,'Shipping');
 INSERT INTO departments VALUES ( 60,'IT');
 INSERT INTO departments VALUES ( 70,'Public Relations');
 INSERT INTO departments VALUES ( 80,'Sales');
-                
+
+ 
+CREATE TABLE jobs
+  (job_id         VARCHAR(10)  PRIMARY KEY,
+   job_title      VARCHAR(35)  NOT NULL,
+   min_salary     int, 
+   max_salary     int
+  );
+     
+     
 INSERT INTO jobs VALUES( 'AD_PRES', 'President' , 20080 , 40000 );
 INSERT INTO jobs VALUES( 'AD_VP', 'Administration Vice President', 15000, 30000);
 INSERT INTO jobs VALUES( 'FI_MGR', 'Finance Manager', 8200, 16000);
@@ -48,12 +36,27 @@ INSERT INTO jobs VALUES( 'SA_MAN', 'Sales Manager', 10000 , 20080 );
 INSERT INTO jobs VALUES( 'SA_REP', 'Sales Representative' , 6000 , 12008 );
 INSERT INTO jobs VALUES( 'IT_PROG', 'Programmer', 4000, 10000);
 
+    
+CREATE TABLE employees
+(   employee_id    INTEGER primary key,
+    first_name     VARCHAR(20),
+    last_name      VARCHAR(25),
+    email          VARCHAR(25) NOT NULL UNIQUE,
+    hire_date      DATE NOT NULL,
+    job_id         VARCHAR(10)  NOT NULL REFERENCES jobs(job_id),
+    salary         INTEGER  CHECK (salary > 0),
+    department_id  INTEGER  REFERENCES departments(department_id) 
+);
+
+                
+
+
 INSERT INTO employees VALUES 
         ( 100
         , 'Steven'
         , 'King'
         , 'SKING'
-        , '2019-10-10',
+        , '2019-10-10'
         , 'AD_PRES'
         , 24000
         , 10
