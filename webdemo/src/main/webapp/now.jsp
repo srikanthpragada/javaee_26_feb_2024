@@ -9,12 +9,11 @@
 <body>
 	<h1>
 		<%=new java.util.Date().toString()%>
-		<hr></hr>
+		<hr />
 		<%
 		String now = new java.util.Date().toString();
 		out.println(now);
 		%>
-
 	</h1>
 </body>
 </html>
