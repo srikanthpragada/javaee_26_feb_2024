@@ -11,8 +11,8 @@
     String name = request.getParameter("lang");
 	Object value = session.getAttribute("langs");
 	ArrayList<String> langs = null;
-	if (value == null)
-		langs = new ArrayList<>();
+	if (value == null)  // attribute not found 
+		langs = new ArrayList<String>();   // Empty List 
 	else
 		langs = (ArrayList<String>) value;
 
@@ -22,9 +22,9 @@
 
 	<h2>Languages</h2>
 	<%
-		// List langs 
+	   // List langs 
 	   for (String lang : langs)
-		out.println(lang + "<br/>");
+		 out.println(lang + "<br/>");
 	%>
 </body>
 </html>
