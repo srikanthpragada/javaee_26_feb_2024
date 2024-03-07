@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Update Salary </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		function getName() {
+			$("#btnUpdate").attr("disabled",true)
+			
+			// make ajax request to get employee name for the given id 
+			let id = $("#txtId").val()
+			$.ajax(
+				{
+					url : 'getname.jsp?id=' + id,
+					method : 'get',
+					success :  showName, 
+					error : showError
+				}
+			);
+		}
+		
+		function showName(result) {
+			if (result.trim() === "") 
+			    $("#empname").text("Sorry! Invalid Id")
+			else {
+			    $("#empname").text(result)
+			    $("#btnUpdate").attr("disabled",false)
+			}
+		}
+		
+		function showError(error) {
+			$("#empname").text("Error while getting data!")
+		}
+		
+		function updateSalary() {
+			$.ajax(
+				{
+					url : 'updatesalary.jsp?id=' + $("#txtId").val() + "&salary=" + $("#salary").val(),
+					method : 'get',
+					success :  showSuccess, 
+					error : showUpdateError
+				}
+			);
+		}
+		
+		function showSuccess() {
+			  alert("Salary has been updated successfully!!!");
+		}
+	 
+	    function showUpdateError(error) {
+			  console.log(error)
+			  alert("Sorry! Could not update salary!");
+		}
+	 
+	</script>
+		
+</head>
+
+<body>
+
+	<h1>Update Salary </h1>
+
+	Employee Id <br />
+	<input type="number" id="txtId" onBlur="getName()" />  
+	<span id="empname"></span>
+	<p></p>
+	New Salary <br />
+	<input type="number" id="salary" />
+	<p></p>
+	<button  onClick="updateSalary()" id="btnUpdate">Update</button>
+
+</body>
+
+</html>
