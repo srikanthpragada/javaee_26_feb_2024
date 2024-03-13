@@ -14,12 +14,14 @@ public class UpdateDepartment {
 		if (d == null) {
 			System.out.println("Sorry! Department id not found!");
 		} else {
+			// d is Managed
 			em.getTransaction().begin();
 			d.setName("Sports");
 			em.getTransaction().commit();
 		}
 
 		em.close();
+		// Detached 
 		emf.close();
 	}
 }

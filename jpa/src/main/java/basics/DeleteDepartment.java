@@ -14,12 +14,15 @@ public class DeleteDepartment {
 		if (d == null) {
 			System.out.println("Sorry! Department id not found!");
 		} else {
+			// Managed 
 			em.getTransaction().begin();
 			em.remove(d);
+			// Removed 
 			em.getTransaction().commit();
 		}
 
 		em.close();
+		// Detached 
 		emf.close();
 	}
 }

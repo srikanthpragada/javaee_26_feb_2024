@@ -15,12 +15,16 @@ public class AddDepartment {
 		d.setId(90);
 		d.setName("Sports");
 		
+		// Transient 
+		
 		em.getTransaction().begin();
 		em.persist(d);
+		// Managed 
 		em.getTransaction().commit();
 		
 
 		em.close();
+		// Detached
 		emf.close();
 
 	}
