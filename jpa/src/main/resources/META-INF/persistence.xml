@@ -34,6 +34,8 @@
 		<!-- domain classes -->
 		<class>pk.Customer</class>
 		<class>composition.Player</class>
+		<class>pk.Salary</class>
+		<class>collection.Programmer</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
