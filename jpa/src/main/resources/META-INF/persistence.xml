@@ -9,6 +9,8 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<!-- domain classes -->
 		<class>basics.Department</class>
+		<class>manytoone.Department</class>
+		<class>manytoone.Employee</class>
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
