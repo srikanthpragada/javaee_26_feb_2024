@@ -12,6 +12,9 @@
 		<class>manytoone.Department</class>
 		<class>manytoone.Employee</class>
 
+		<class>query.Department</class>
+		<class>query.Employee</class>
+
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
@@ -40,6 +43,12 @@
 		<class>collection.Programmer</class>
 		<class>manytomany.Student</class>
 		<class>manytomany.Course</class>
+		<class>inh.Player</class>
+		<class>inh.Singer</class>
+		<class>inh.Person</class>
+		<class>inh.tps.Player</class>
+		<class>inh.tps.Singer</class>
+		<class>inh.tps.Person</class>
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
