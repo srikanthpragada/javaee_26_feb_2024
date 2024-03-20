@@ -49,7 +49,7 @@
 		<class>inh.tps.Player</class>
 		<class>inh.tps.Singer</class>
 		<class>inh.tps.Person</class>
-
+	    <class>concurrency.Person</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"

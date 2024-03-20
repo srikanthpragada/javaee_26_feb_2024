@@ -11,4 +11,5 @@
     <fullyQualifiedTypeName name="javax.persistence.DiscriminatorType"/>
     <fullyQualifiedTypeName name="java.lang.Class"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.NamedQuery"/>
 </qualifiedTypeNameHistroy>

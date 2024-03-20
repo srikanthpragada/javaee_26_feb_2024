@@ -6,13 +6,13 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-  
+import org.hibernate.annotations.NamedQuery;
+   
 @Table(name = "employees")
-@Entity(name = "query.Employee") 
-//@NamedQuery(name="CostlyEmployees",
-//            query = "select e from query.Employee e where e.salary > 20000")
+@Entity(name = "query.Employee")  
+@NamedQuery(name="CostlyEmployees",
+            query = "select e from query.Employee e where e.salary > 20000")
 public class Employee {
 	@Id // primary key
 	@Column(name = "employee_id")
