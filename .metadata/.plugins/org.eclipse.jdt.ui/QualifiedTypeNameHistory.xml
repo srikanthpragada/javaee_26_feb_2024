@@ -12,4 +12,6 @@
     <fullyQualifiedTypeName name="java.lang.Class"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
     <fullyQualifiedTypeName name="javax.persistence.NamedQuery"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.NamedQuery"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.SpringApplication"/>
 </qualifiedTypeNameHistroy>
