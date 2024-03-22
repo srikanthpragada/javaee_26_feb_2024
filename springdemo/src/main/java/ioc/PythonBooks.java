@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class PythonBooks implements BooksCatalog {
 
 	public PythonBooks() {

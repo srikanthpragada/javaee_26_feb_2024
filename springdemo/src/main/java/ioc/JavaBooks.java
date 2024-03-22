@@ -2,9 +2,13 @@ package ioc;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
+//@Primary 
+//@Lazy
+@Scope(scopeName = "prototype")
 public class JavaBooks implements BooksCatalog {
 
 	public JavaBooks() {
