@@ -64,39 +64,6 @@ public class DeptManager {
 		System.out.println("No. of rows updated : " + count);
 	}
 	
-//
-//	@Transactional(propagation = Propagation.REQUIRED)
-//	public void swapDescriptions(String code1, String code2) {
-//		TransactionStatus status = TransactionAspectSupport.currentTransactionStatus();
-//		System.out.println("Transaction Begins");
-//
-//		// get description for code1
-//		String desc1 = jdbcTemplate.queryForObject("select catdesc from categories where catcode = ?", String.class,
-//				code1);
-//
-//		int count = jdbcTemplate.update(
-//				"update categories set catdesc = (select catdesc from categories where catcode = ?) where catcode = ?",
-//				code2, code1);
-//		if (count == 0) {
-//			// throw new RuntimeException();
-//			status.setRollbackOnly();
-//		} else {
-//
-//			System.out.println("First Update Done");
-//
-//			count = jdbcTemplate.update("update categories  set catdesc = ? where catcode = ?", desc1, code2);
-//			if (count == 0)
-//				status.setRollbackOnly();
-//			else
-//				System.out.println("Second update done!");
-//
-//		}
-//		System.out.println("New Transaction : " + status.isNewTransaction());
-//		System.out.println("Rollback ? " + status.isRollbackOnly());
-//		System.out.println("Function Done!");
-//
-//	}
-//
 
-
+	
 }
