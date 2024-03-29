@@ -19,41 +19,52 @@ public class TestDept implements CommandLineRunner {
 			System.out.printf("%2d %-20s\n", d.getId(), d.getName());
 		}
 	}
-	
+
 	public void addDept() {
 		var d = new Department();
 		d.setId(100);
 		d.setName("Dept 100");
 		deptRepo.save(d);
 	}
-	
+
 	public void updateDept(int id, String name) {
 		var d = deptRepo.findById(id);
 		if (d.isEmpty())
 			System.out.println("Sorry! Department Id Not Found");
-		else
-		{
-			var dept = d.get();
+		else {
+			var dept = d.get(); // get department
 			dept.setName(name);
 			deptRepo.save(dept);
 		}
 	}
-	
+
 	public void deleteDept(int id) {
-		deptRepo.deleteById(id);
+		if (deptRepo.existsById(id)) {
+			deptRepo.deleteById(id);
+		} else
+			System.out.println("Sorry! Department Id Not Found!");
 	}
 
 	public void getDeptByName(String name) {
 		var d = deptRepo.getByName(name);
-		System.out.println(d.getId()  + " - " + d.getName());
+		System.out.println(d.getId() + " - " + d.getName());
 	}
+
+	
+	public void listDeptByName(String name) {
+		var depts = deptRepo.findByNameContainingIgnoreCase(name);
+		for(var d : depts )
+			System.out.println(d.getName());
+	}
+	
 	public void run(String... args) {
-		//System.out.println(deptRepo.getClass());
-		//listDepts();
-		//addDept();
-		//updateDept(100, "Department 100");
-		//deleteDept(100);
-		getDeptByName("Sales");
-		
+		// System.out.println(deptRepo.getClass());
+		// listDepts();
+		// addDept();
+		// updateDept(100, "Department 100");
+		// deleteDept(100);
+		// getDeptByName("Sales");
+		// listDeptByName("i");
+
 	}
 }
