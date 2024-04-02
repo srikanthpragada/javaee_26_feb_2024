@@ -18,6 +18,6 @@
 		<button>Add</button>
 	</form>
 	
-	<h1>${addModel.result > 0 ? addModel.result : ''}</h1>
+	<h1>${addModel.result > 0 ? addModel.result : message}</h1>
 </body>
 </html>
