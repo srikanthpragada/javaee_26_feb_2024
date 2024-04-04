@@ -12,7 +12,8 @@
 </head>
 <body>
 <div class="container">
-	<h1>Employees By Department [${deptId}]</h1>
+    <%@include file="menu.jsp" %>
+	<h1>Employees By Department [${deptName}]</h1>
 	<p></p>
 	<table class="table table-bordered">
 		<tr>

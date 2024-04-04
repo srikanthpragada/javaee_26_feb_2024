@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div class="container">
+	    <%@include file="menu.jsp" %>
 		<h1>Edit Department</h1>
 		<sf:form method="post" modelAttribute="dept">
 		Id <br />

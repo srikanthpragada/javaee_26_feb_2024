@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,7 @@
 </head>
 <body>
 	<div class="container">
+		<%@include file="menu.jsp"%>
 		<h1>Add Department</h1>
 		<sf:form method="post" modelAttribute="dept">
 		Id <br />
@@ -22,6 +25,12 @@
 			<p></p>
 			<button>Add</button>
 		</sf:form>
+		<p></p>
+		<c:if test="${message.length() > 0}">
+			<h3 class="text-danger">${message}</h3>
+		</c:if>
+
+
 	</div>
 </body>
 </html>

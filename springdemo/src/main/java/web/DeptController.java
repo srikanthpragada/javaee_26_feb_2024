@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import web.data.Department;
 import web.data.DeptRepo;
@@ -26,6 +27,7 @@ public class DeptController {
 	
 	@GetMapping("/addDept")
 	public String  addForm(Model model) {
+		model.addAttribute("message", "");
 		Department d = new Department();
 		model.addAttribute("dept", d);
 		return "addDept";
@@ -33,8 +35,30 @@ public class DeptController {
 	
 	@PostMapping("/addDept")
 	public String  addForm(Department dept, Model model) {
-		deptRepo.save(dept);
-		return "redirect:depts";
+		// Is dept_id unique 
+		var optDept = deptRepo.findById(dept.getId());
+		if (optDept.isEmpty())
+		{
+		  deptRepo.save(dept);  // insert 
+		  return "redirect:depts";
+		}
+		else
+		{
+			model.addAttribute("message", "Department Id Already Exists!");
+			model.addAttribute("dept", dept);
+			return "addDept";
+		}
+	}
+	
+	
+	@GetMapping("/exists")
+	@ResponseBody
+	public String deptExists(int id) {
+		var optDept = deptRepo.findById(id);
+		if (optDept.isPresent())
+			return "1"; // existing
+		else
+			return "0"; // not existing 
 	}
 	
 	
@@ -52,8 +76,9 @@ public class DeptController {
 		     model.addAttribute("dept", optDept.get());
 		     return "editDept";
 	    }
-	    else
-	    	return "redirect:depts";
+	    else {
+	    	return "editError";
+	    }
 	}
 	
 	
@@ -74,11 +99,28 @@ public class DeptController {
 	@GetMapping("/employees")
 	public String  listEmployees(int dept, Model model) {
 		var employees = empRepo.findByDeptId(dept);
+		var optDept = deptRepo.findById(dept);
+		model.addAttribute("deptName", optDept.get().getName());
+		
 		model.addAttribute("employees", employees);
 		model.addAttribute("deptId", dept);
 		return "listEmployees";
 	}
 	
+	
+	@GetMapping("/searchEmployees")
+	public String  searchEmployees() {
+		return "searchEmployees";
+	}
+	
+	@GetMapping("/doSearch")
+	public String  searchEmployees(String empName, Model model) {
+		// get Employees by the given name 
+		var employees = empRepo.findByNameContaining(empName);
+		model.addAttribute("empName", empName);
+		model.addAttribute("employees", employees);
+		return "searchEmployees";
+	}
 	
 	
 	  

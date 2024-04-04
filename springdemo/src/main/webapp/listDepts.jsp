@@ -12,9 +12,9 @@
 </head>
 <body>
 <div class="container">
-	<h1>Departments</h1>
-	<a href="/addDept">Add Department</a>
+	<%@include file="menu.jsp" %>
 	<p></p>
+	<h1>Departments</h1>
 	<table class="table table-bordered">
 		<tr>
 			<th>Department Id</th>
