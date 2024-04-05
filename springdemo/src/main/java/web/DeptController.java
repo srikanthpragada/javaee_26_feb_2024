@@ -121,7 +121,5 @@ public class DeptController {
 		model.addAttribute("employees", employees);
 		return "searchEmployees";
 	}
-	
-	
 	  
 }

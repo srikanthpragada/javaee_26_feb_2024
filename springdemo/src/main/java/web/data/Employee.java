@@ -14,6 +14,17 @@ public class Employee {
 
 	@Column(name = "first_name")
 	private String name;
+	
+	@Column(name = "email")
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Column(name = "salary")
 	private int salary;
