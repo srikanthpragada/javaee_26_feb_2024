@@ -22,5 +22,11 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="web.data.EmployeeRepo"/>
+    <fullyQualifiedTypeName name="web.data.Employee"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.server.ResponseStatusException"/>
+    <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.Parameter"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.User"/>
 </qualifiedTypeNameHistroy>

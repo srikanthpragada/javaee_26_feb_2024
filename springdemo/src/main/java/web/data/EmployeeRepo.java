@@ -9,6 +9,9 @@ public interface EmployeeRepo extends CrudRepository<Employee, Integer> {
 	List<Employee> findByDeptId(int id);
 
 	// Query Derivation
+    List<Employee> findByJobId(String id);
+		
+	// Query Derivation
 	List<Employee> findByNameContaining(String name);
 
 }

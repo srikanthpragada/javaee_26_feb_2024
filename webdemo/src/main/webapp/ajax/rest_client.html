@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Rest Client</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		function getEmployees() {
+			  $.get("http://localhost:9999/rest/employees");
+		} 
+	</script>
+		
+</head>
+
+<body>
+
+	<h1>Rest Client</h1>
+	<button  onClick="getEmployees()">Test</button>
+
+</body>
+
+</html>
