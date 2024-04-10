@@ -22,7 +22,7 @@ public class TodoController {
 	@Autowired
 	private UserRepo userRepo;
 
-	@RequestMapping(value = "add")
+	@GetMapping(value = "add")
 	public String add(ModelMap model) {
 		Todo todo = new Todo();
 		model.addAttribute("todo", todo);

@@ -12,24 +12,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
- 
 
 @Entity
 @Table(name = "todousers")
 public class TodoUser {
 	@Id
-	@Column(length=10)
+	@Column(length = 10)
 	private String username;
-	
-	@Column(length=10)
+
+	@Column(length = 10)
 	private String password;
-	
-	@Transient 
+
+	@Transient
 	private String confirmPassword;
-	
-	@Column(length=50)
+
+	@Column(length = 50)
 	private String email;
-	
+
 	@OneToMany(mappedBy = "username")
 	private List<Todo> todos = new ArrayList<Todo>();
 
@@ -41,12 +40,10 @@ public class TodoUser {
 		this.todos = todos;
 	}
 
-	 
 	public String getUsername() {
 		return username;
 	}
 
-	 
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -76,12 +73,12 @@ public class TodoUser {
 	}
 
 	public UserDetails asUser() {
-		// convert TodoUser to UserDetails 
+		// convert TodoUser to UserDetails
 		return User.withDefaultPasswordEncoder() //
-		.username(getUsername()) //
-		.password(getPassword()) //
-		.authorities("USER") //
-		.build();
-		}
-		
+				.username(getUsername()) //
+				.password(getPassword()) //
+				.authorities("USER") //
+				.build();
+	}
+
 }

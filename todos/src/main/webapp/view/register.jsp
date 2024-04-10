@@ -19,13 +19,13 @@
 		<p />
 		 Confirm Password <br />
 		<sf:password path="confirmPassword" />
-		<p/>
+		<p />
 		 Email Address <br>
 		<sf:input required="true" path="email" />
 		<p />
 		<button type="submit">Register</button>
 	</sf:form>
-	<p/>
+	<p />
 	<a href="login">Login</a>
 	<h4>${message}</h4>
 </body>
